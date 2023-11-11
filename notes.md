@@ -54,3 +54,7 @@ No backend vamos ter uma API NodeJS + Express + MySQL para servir o frontend.
         botão para submeter alteração
 
     (eliminar será feito com uma modal)
+
+    Backend
+        criar um serrvidor NodeJS + Express + MySQL
+        criar um endpoint inicial - testar comunicações
