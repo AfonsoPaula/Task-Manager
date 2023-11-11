@@ -17,6 +17,7 @@ app.listen(3000, () => {
 
 // middleware
 app.use(cors());
+app.use(express.json());
 
 // routes
 // --------------------------------------------------------------------------
@@ -47,4 +48,16 @@ app.get("/user/:id/tasks", (req,res) => {
         } 
         res.json(results);
     })
+});
+
+// --------------------------------------------------------------------------
+app.post("/user/tasks/update_status", (req,res) => {
+    // console.log(req.body.id_task);
+    // console.log(req.body.status);
+    connection.query("UPDATE tasks SET task_status = ?, updated_at = NOW() WHERE id = ?", [req.body.status, req.body.id_task], (err, results) => {
+        if (err){
+            res.send('MySQL connection error.');
+        } 
+    })
+    res.json('ok');
 });
