@@ -28,114 +28,23 @@
                     <a href="new_task.html" class="btn btn-primary"><i class="fa-solid fa-plus me-2"></i>New task</a>
                 </div>
             </div>
+            <hr class="my-4">
+            <h4 class="m-0 pl-2 text-info"><i class="fa-solid fa-user-tie me-2"></i><span id="username"></span></h4>
+            <hr class="my-4">
         </div>
-
-        <hr class="my-4">
-        <p class="m-0 p-0" id="username">[username]</p>
-        <hr class="my-4">
 
         <!-- VISUAL ASPECT OF A TASK -->
-        <div class="row mb-3">
-            <div class="col-12 border border-secondary rounded p-3 shadow">
-                <div class="row align-items-center">
-                    <div class="col-8">
-                        <div class="d-flex align-items-center">
-                            <h5 class="me-3 text-info"><i class="fa-solid fa-circle-chevron-right me-2"></i></h5>
-                            <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi modi, dignissimos quis aliquid ex harum.</h5>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <select id="task_status" class="form-select p-2">
-                            <option value="new">New</option>
-                            <option value="in progress">In progress</option>
-                            <option value="cancel">Cancel</option>
-                            <option value="done">Done</option>
-                        </select>
-                    </div>
-                    <div class="col-1 text-end"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</div>
-                    <div class="col-1 text-end text-danger"><i class="fa-solid fa-trash-can me-2"></i>Delete</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mb-3">
-            <div class="col-12 border border-secondary rounded p-3 shadow">
-                <div class="row align-items-center">
-                    <div class="col-8">
-                        <div class="d-flex align-items-center">
-                            <h5 class="me-3 text-info"><i class="fa-solid fa-circle-chevron-right me-2"></i></h5>
-                            <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi modi, dignissimos quis aliquid ex harum.</h5>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <select id="task_status" class="form-select p-2">
-                            <option value="new">New</option>
-                            <option value="in progress">In progress</option>
-                            <option value="cancel">Cancel</option>
-                            <option value="done">Done</option>
-                        </select>
-                    </div>
-                    <div class="col-1 text-end"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</div>
-                    <div class="col-1 text-end text-danger"><i class="fa-solid fa-trash-can me-2"></i>Delete</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mb-3">
-            <div class="col-12 border border-secondary rounded p-3 shadow">
-                <div class="row align-items-center">
-                    <div class="col-8">
-                        <div class="d-flex align-items-center">
-                            <h5 class="me-3 text-info"><i class="fa-solid fa-circle-chevron-right me-2"></i></h5>
-                            <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi modi, dignissimos quis aliquid ex harum.</h5>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <select id="task_status" class="form-select p-2">
-                            <option value="new">New</option>
-                            <option value="in progress">In progress</option>
-                            <option value="cancel">Cancel</option>
-                            <option value="done">Done</option>
-                        </select>
-                    </div>
-                    <div class="col-1 text-end"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</div>
-                    <div class="col-1 text-end text-danger"><i class="fa-solid fa-trash-can me-2"></i>Delete</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mb-3">
-            <div class="col-12 border border-secondary rounded p-3 shadow">
-                <div class="row align-items-center">
-                    <div class="col-8">
-                        <div class="d-flex align-items-center">
-                            <h5 class="me-3 text-info"><i class="fa-solid fa-circle-chevron-right me-2"></i></h5>
-                            <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi modi, dignissimos quis aliquid ex harum.</h5>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <select id="task_status" class="form-select p-2">
-                            <option value="new">New</option>
-                            <option value="in progress">In progress</option>
-                            <option value="cancel">Cancel</option>
-                            <option value="done">Done</option>
-                        </select>
-                    </div>
-                    <div class="col-1 text-end"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</div>
-                    <div class="col-1 text-end text-danger"><i class="fa-solid fa-trash-can me-2"></i>Delete</div>
-                </div>
-            </div>
-        </div>
+        <div id="tasks_container"></div>
 
         <!-- TOTAL TASKS -->
-        <div class="row" id="total_tasks">
+        <div class="row d-none" id="total_tasks">
             <div class="col">
-                <h4>Tasks: <span class="text-info"><strong>4</strong></span></h4>
+                <h4>Tasks: <span class="text-info"><strong></strong></span></h4>
             </div>
         </div>
         
         <!-- NO TASKS -->
-        <div class="row" id="no_tasks">
+        <div class="row d-none" id="no_tasks">
             <div class="col text-center">
                 <span class="opacity-75">There are no tasks to show you.</span>
             </div>
@@ -148,7 +57,6 @@
                 <p>Task manager &copy; 2023</p>
             </div>
         </div>
-
     </div>
 
     <script src="assets/js/index.js"></script>

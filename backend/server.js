@@ -38,3 +38,13 @@ app.get("/user/:id", (req,res) => {
         res.json(results);
     })
 });
+
+// --------------------------------------------------------------------------
+app.get("/user/:id/tasks", (req,res) => {
+    connection.query("SELECT * FROM tasks WHERE id_user = ?", [req.params.id], (err, results) => {
+        if (err){
+            res.send('MySQL connection error.');
+        } 
+        res.json(results);
+    })
+});
