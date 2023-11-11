@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
+const cors = require('cors');
 
 // connection options with MySQL
 const connection = mysql.createConnection({
@@ -14,13 +15,26 @@ app.listen(3000, () => {
     console.log('.......... <Server Started> ..........');
 })
 
+// middleware
+app.use(cors());
+
 // routes
+// --------------------------------------------------------------------------
 app.get("/", (req,res) => {
     connection.query("SELECT COUNT(*) users FROM users", (err, results) => {
         if (err){
-            res.send(err.message);
+            res.send('MySQL connection error.');
         } 
-
-        res.send(results);
+        res.send('MySQL connection OK.');
     })
-})
+});
+
+// --------------------------------------------------------------------------
+app.get("/user/:id", (req,res) => {
+    connection.query("SELECT id, username, created_at FROM users WHERE id = ?", [req.params.id], (err, results) => {
+        if (err){
+            res.send('MySQL connection error.');
+        } 
+        res.json(results);
+    })
+});
