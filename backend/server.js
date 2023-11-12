@@ -61,3 +61,13 @@ app.post("/user/tasks/update_status", (req,res) => {
     })
     res.json('ok');
 });
+
+// --------------------------------------------------------------------------
+app.post("/user/tasks/new_task", (req,res) => {
+connection.query("INSERT INTO tasks VALUES(0, ?, ?, 'new', NOW(), NOW())", [req.body.id_user, req.body.task_text], (err, results) => {
+        if (err){
+            res.send('MySQL connection error.');
+        } 
+    })
+    res.json('ok');
+});

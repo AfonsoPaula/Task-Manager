@@ -129,9 +129,6 @@ function change_task_status(id_task){
             return response.json();
         }
     })
-    .then(data => {
-        console.log(data);
-    })
 
     // update select color based on task status
     let color_obj = colors.find(e => e.task_status == status);
@@ -141,3 +138,9 @@ function change_task_status(id_task){
     select.classList.remove(...colors_tmp);
     select.classList.add(color_obj.select_bg_color);
 }
+
+document.querySelector("#btn_new_task").addEventListener('click', () => {
+    
+    const url = window.location.origin + "/To-Do-List/frontend/new_task.html?id_user=" + id_user;
+    window.location.href = url;
+})
