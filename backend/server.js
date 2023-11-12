@@ -92,4 +92,12 @@ app.post("/user/tasks/update_task", (req,res) => {
         res.json('ok');
 });
 
-// user/tasks/update_task
+// --------------------------------------------------------------------------
+app.get("/user/tasks/delete_task/:id_task", (req,res) => {
+    connection.query("DELETE FROM tasks WHERE id = ?", [req.params.id_task], (err, results) => {
+        if (err){
+            res.send('MySQL connection error.');
+        } 
+        res.json(results);
+    })
+});

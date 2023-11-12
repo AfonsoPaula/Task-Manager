@@ -111,7 +111,8 @@ function edit_task(id_task){
 
 //------------------------------------------------------------
 function delete_task(id_task){
-    console.log(id_task);
+    const url = window.location.origin + "/To-Do-List/frontend/delete_task.html?id_task=" + id_task;
+    window.location.href = url;
 }
 
 //------------------------------------------------------------
