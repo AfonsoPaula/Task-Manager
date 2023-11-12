@@ -41,13 +41,24 @@ app.get("/user/:id", (req,res) => {
 });
 
 // --------------------------------------------------------------------------
-app.get("/user/:id/tasks", (req,res) => {
-    connection.query("SELECT * FROM tasks WHERE id_user = ?", [req.params.id], (err, results) => {
-        if (err){
-            res.send('MySQL connection error.');
-        } 
-        res.json(results);
-    })
+app.get("/user/:id/tasks/:status", (req,res) => {
+
+    if (req.params.status != "all"){
+        connection.query("SELECT * FROM tasks WHERE id_user = ? AND task_status = ?", [req.params.id, req.params.status], (err, results) => {
+            if (err){
+                res.send('MySQL connection error.');
+            } 
+            res.json(results);
+        })
+    } else {
+        connection.query("SELECT * FROM tasks WHERE id_user = ?", [req.params.id], (err, results) => {
+            if (err){
+                res.send('MySQL connection error.');
+            } 
+            res.json(results);
+        })
+    }
+    
 });
 
 // --------------------------------------------------------------------------

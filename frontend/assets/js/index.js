@@ -46,9 +46,9 @@ function get_username(id_user){
 }
 
 //------------------------------------------------------------
-function get_user_tasks(id_user){
+function get_user_tasks(id_user, status = "all"){
 
-    fetch(`http://localhost:3000/user/${id_user}/tasks`)
+    fetch(`http://localhost:3000/user/${id_user}/tasks/${status}`)
     .then(response => {
         if (response.status === 200){
             return response.json();
@@ -140,8 +140,15 @@ function change_task_status(id_task){
     select.classList.add(color_obj.select_bg_color);
 }
 
+//------------------------------------------------------------
 document.querySelector("#btn_new_task").addEventListener('click', () => {
     
     const url = window.location.origin + "/To-Do-List/frontend/new_task.html?id_user=" + id_user;
     window.location.href = url;
+})
+
+//------------------------------------------------------------
+document.querySelector("#select_filter").addEventListener('change', () => {
+    let task_status = document.querySelector("#select_filter").value;
+    get_user_tasks(id_user, task_status);
 })
