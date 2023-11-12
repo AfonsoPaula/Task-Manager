@@ -49,7 +49,6 @@ function get_username(id_user){
 function get_user_tasks(id_user){
 
     fetch(`http://localhost:3000/user/${id_user}/tasks`)
-
     .then(response => {
         if (response.status === 200){
             return response.json();
@@ -106,7 +105,8 @@ function get_user_tasks(id_user){
 
 //------------------------------------------------------------
 function edit_task(id_task){
-    console.log(id_task);
+    const url = window.location.origin + "/To-Do-List/frontend/edit_task.html?id_task=" + id_task;
+    window.location.href = url;
 }
 
 //------------------------------------------------------------

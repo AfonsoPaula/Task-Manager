@@ -71,3 +71,25 @@ connection.query("INSERT INTO tasks VALUES(0, ?, ?, 'new', NOW(), NOW())", [req.
     })
     res.json('ok');
 });
+
+// --------------------------------------------------------------------------
+app.get("/user/tasks/get_task/:id_task", (req,res) => {
+    connection.query("SELECT * FROM tasks WHERE id = ?", [req.params.id_task], (err, results) => {
+        if (err){
+            res.send('MySQL connection error.');
+        } 
+        res.json(results);
+    })
+});
+
+// --------------------------------------------------------------------------
+app.post("/user/tasks/update_task", (req,res) => {
+    connection.query("UPDATE tasks SET task_text = ?, updated_at = NOW() WHERE id = ?", [req.body.task_text, req.body.id_task], (err, results) => {
+            if (err){
+                res.send('MySQL connection error.');
+            } 
+        })
+        res.json('ok');
+});
+
+// user/tasks/update_task
